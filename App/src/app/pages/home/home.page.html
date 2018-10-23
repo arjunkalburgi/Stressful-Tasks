@@ -1,17 +1,23 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Home</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="openNewItemPage()">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-title>
+      <img src="../../../assets/icon/favicon.png" />
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <section padding>
     <img src="../../../assets/icon/favicon.png" />
+  </section>
+  <section>
+    <form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
+      <ion-item>
+        <ion-label color="primary" position="floating">Title</ion-label>
+        <ion-input type="text" formControlName="title" required></ion-input>
+      </ion-item>
+      <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_item_form.valid">Create</ion-button>
+    </form>
   </section>
   <ion-list>
     <ion-item *ngFor="let item of items" (click)="goToItem(item)">
