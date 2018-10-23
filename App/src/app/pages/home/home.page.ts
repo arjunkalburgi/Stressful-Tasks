@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ItemService } from '../../services/item.service';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
@@ -14,6 +15,7 @@ export class HomePage implements OnInit {
   new_item_form: FormGroup;
 
   constructor(
+    private router: Router,
     public formBuilder: FormBuilder,
     public itemService: ItemService
   ){}
