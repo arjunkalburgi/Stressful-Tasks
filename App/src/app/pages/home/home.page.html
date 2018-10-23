@@ -1,29 +1,25 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      <img src="../../../assets/icon/favicon.png" />
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<header>
+  <img src="../../../assets/LogoSide.png" />
+</header>
 
-<ion-content padding>
-  <section padding>
-    <img src="../../../assets/icon/favicon.png" />
-  </section>
-  <section>
-    <form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
-      <ion-item>
-        <ion-label color="primary" position="floating">Title</ion-label>
-        <ion-input type="text" formControlName="title" required></ion-input>
-      </ion-item>
-      <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!new_item_form.valid">Create</ion-button>
-    </form>
-  </section>
+<section padding>
+  <img src="../../../assets/icon/favicon.png" />
+</section>
+
+<section>
+  <form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
+    <ion-input type="text" formControlName="title" placeholder="What's stressing you out?" required></ion-input>
+    <ion-button class="submit-btn" type="submit" [disabled]="!new_item_form.valid">Create</ion-button>
+  </form>
+</section>
+
+<ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items" (click)="goToItem(item)">
-      <ion-label>
-        {{ item.title }}
-      </ion-label>
+    <ion-item *ngFor="let item of items">
+      <div style="height: 20px; width: 20px; background-color: aqua; border-radius: 5px; "></div>
+      <ion-label>{{ item.title }}</ion-label>
+      <button>😨</button>
+      <button>🙃</button>
     </ion-item>
   </ion-list>
 </ion-content>
