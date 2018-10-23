@@ -1,25 +1,25 @@
-<header>
-  <img src="../../../assets/LogoSide.png" />
+<header class="st-header">
+  <img class="st-header__header" src="../../../assets/LogoSide.png" />
 </header>
 
-<section padding>
-  <img src="../../../assets/icon/favicon.png" />
+<section  class="st-graph">
+  <img class="st-graph__placeholderimage" src="../../../assets/icon/favicon.png" />
 </section>
 
-<section>
-  <form [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
-    <ion-input type="text" formControlName="title" placeholder="What's stressing you out?" required></ion-input>
-    <ion-button class="submit-btn" type="submit" [disabled]="!new_item_form.valid">Create</ion-button>
+<section class="st-add">
+  <form class="st-add__form" [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
+    <ion-input class="st-add__input" type="text" formControlName="title" placeholder="What's stressing you out?" required></ion-input>
+    <button class="st-add__addbutton" type="submit" [disabled]="!new_item_form.valid">➕</button>
   </form>
 </section>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <div style="height: 20px; width: 20px; background-color: aqua; border-radius: 5px; "></div>
-      <ion-label>{{ item.title }}</ion-label>
-      <button>😨</button>
-      <button>🙃</button>
+<ion-content class="st-tasks">
+  <ion-list class="st-tasks__list">
+    <ion-item class="st-tasks__task" *ngFor="let item of items">
+      <div class="st-tasks__taskcolour" style="height: 20px; width: 20px; background-color: aqua; border-radius: 5px; "></div>
+      <ion-label class="st-tasks__tasktext">{{ item.title }}</ion-label>
+      <button class="st-tasks__taskbutton--stress">😨</button>
+      <button class="st-tasks__taskbutton--fine">🙃</button>
     </ion-item>
   </ion-list>
 </ion-content>

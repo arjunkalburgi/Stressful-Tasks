@@ -31,7 +31,6 @@ export class HomePage implements OnInit {
   createItem(value) {
     this.itemService.createItem(value.title, value.description);
     this.new_item_form.reset();
-    // this.goBack();
   }
 
 }
