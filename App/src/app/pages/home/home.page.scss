@@ -1,7 +1,16 @@
+@font-face {
+    font-family: Ruluko;
+    src: url("./../../../assets/fonts/Ruluko-Regular.ttf")
+}
+
+* {
+    font-family: "Ruluko" !important;
+    font-size: 13pt; 
+}
+
 .st {
     max-width: 600px; 
 }
-
 
 .st-header {
     padding: 10px 15px; 
