@@ -35,21 +35,19 @@
 .st-add {
     width: 81%; 
     margin: auto; 
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #E5E5E5;
 
     .st-add__form {
-        width: 90%; 
+        width: 85%; 
         margin: auto; 
         display: flex;
         justify-content: space-between;
         align-items: center;
         align-content: center; 
+        color: #C2C2C2;
     }
 
     .st-add__input {
-    }
-
-    .st-add__addbutton {
     }
 }
 
@@ -63,24 +61,82 @@
         .st-tasks__task {
             width: 90%;
             margin: auto;
-            border-bottom: 1px solid gray; 
+            border-bottom: 1px solid #E5E5E5; 
 
             .st-tasks__taskcolour {
                 height: 20px;
                 width: 20px;
-                background-color: aqua;
                 border-radius: 5px;
+            }
+
+            .st-taskColour--red {
+                background-color: #FD898C;
+            }
+
+            .st-taskColour--orange {
+                background-color: #E8BD93;
+            }
+
+            .st-taskColour--green {
+                background-color: #3D9994;
+            }
+
+            .st-colorBg--yellow {
+                background-color: #F2EE8A;
+            }
+
+            .st-taskColour--purple {
+                background-color: #AE93E8;
+            }
+
+            .st-taskColour--blue {
+                background-color: #78A8EF;
+            }
+
+            .st-taskColour--pink {
+                background-color: #E893D0;
             }
 
             .st-tasks__tasktext {
                 padding: 15px;
             }
-
-            .st-tasks__taskbutton {
-                .st-tasks__taskbutton--stress {}
-
-                .st-tasks__taskbutton--fine {}
-            }
         }
+    }
+}
+
+.st-button {
+    border: 1px solid #E5E5E5; 
+    border-radius: 5px; 
+    background-color: white; 
+    width: 24px; 
+    height: 24px; 
+    margin: 5px; 
+    padding: 0px; 
+
+    .st-buttonBg {
+        width: 100%;
+        height: 100%; 
+    }
+
+    .st-buttonBg--stress {
+        -webkit-mask: url(./../../../assets/images/stress.svg) no-repeat 50% 50%;
+        mask: url(./../../../assets/images/stress.svg) no-repeat 50% 50%;
+        -webkit-mask-size: auto;
+        mask-size: auto;
+    }
+
+    .st-buttonBg--fine {
+        -webkit-mask: url(./../../../assets/images/fine.svg) no-repeat 50% 50%;
+        mask: url(./../../../assets/images/fine.svg) no-repeat 50% 50%;
+        -webkit-mask-size: auto;
+        mask-size: auto;
+    }
+
+    .st-buttonBg--add {
+        background-color: black;
+        -webkit-mask: url(./../../../assets/images/add.svg) no-repeat 50% 50%;
+        mask: url(./../../../assets/images/add.svg) no-repeat 50% 50%;
+        -webkit-mask-size: auto;
+        mask-size: auto;
     }
 }

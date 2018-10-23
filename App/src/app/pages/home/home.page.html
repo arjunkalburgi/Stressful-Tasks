@@ -9,17 +9,17 @@
 <section class="st-add">
   <form class="st-add__form" [formGroup]="new_item_form" (submit)="createItem(new_item_form.value)">
     <ion-input class="st-add__input" type="text" formControlName="title" placeholder="What's stressing you out?" required></ion-input>
-    <button class="st-add__addbutton" type="submit" [disabled]="!new_item_form.valid">➕</button>
+    <button class="st-button" type="submit" [disabled]="!new_item_form.valid"><div class="st-buttonBg st-buttonBg--add"></div></button>
   </form>
 </section>
 
 <ion-content class="st-tasks">
   <ion-list class="st-tasks__list">
     <ion-item class="st-tasks__task" *ngFor="let item of items">
-      <div class="st-tasks__taskcolour"></div>
+      <div class="st-tasks__taskcolour st-taskColour--red"></div>
       <ion-label class="st-tasks__tasktext">{{ item.title }}</ion-label>
-      <button class="st-tasks__taskbutton--stress">😨</button>
-      <button class="st-tasks__taskbutton--fine">🙃</button>
+      <button class="st-button"><div class="st-buttonBg st-buttonBg--stress st-taskColour--red"></div></button>
+      <button class="st-button"><div class="st-buttonBg st-buttonBg--fine st-taskColour--red"></div></button>
     </ion-item>
   </ion-list>
 </ion-content>
