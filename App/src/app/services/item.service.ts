@@ -5,37 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class ItemService {
 
-  items: Array<any> = [
-    {
-      'id': "1",
-      'title': "Example 1",
-      'description': 'description 1'
-    },
-    {
-      'id': "2",
-      'title': "Example 2",
-      'description': 'description 2'
-    },
-    {
-      'id': "3",
-      'title': "Example 3",
-      'description': 'description 3'
-    },
-    {
-      'id': "4",
-      'title': "Example 4",
-      'description': 'description 4'
-    }
-  ]
+  items: Array<any> = []
+  availableColours = ['st-taskColour--red', 'st-taskColour--orange', 'st-taskColour--green', 'st-colorBg--yellow', 'st-taskColour--purple', 'st-taskColour--blue', 'st-taskColour--pink']
 
-  constructor() { }
+  constructor() {
+    this.createItem("Omg exam1")
+    this.createItem("Omg exam2")
+    this.createItem("Omg exam3")
+  }
 
-  createItem(title, description){
+  createItem(title) {
     let randomId = Math.random().toString(36).substr(2, 5);
+    let colour = this.chooseNewItemColour(); 
     this.items.push({
       'id': randomId,
       'title': title,
-      'description': description
+      'colour': colour, 
+      'percentage': 0.5
     });
   }
 
@@ -46,6 +32,13 @@ export class ItemService {
   updateItem(newValues){
     let itemIndex = this.items.findIndex(item => item.id == newValues.id);
     this.items[itemIndex] = newValues;
+  }
+
+  chooseNewItemColour() {
+    let index = Math.floor(Math.random() * Math.floor(this.availableColours.length));
+    let colour = this.availableColours[index]; 
+    this.availableColours.splice(index, 1); 
+    return colour; 
   }
 
 

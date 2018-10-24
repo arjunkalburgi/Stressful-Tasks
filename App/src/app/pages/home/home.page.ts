@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
   }
 
   createItem(value) {
-    this.itemService.createItem(value.title, value.description);
+    this.itemService.createItem(value.title);
     this.new_item_form.reset();
   }
 
