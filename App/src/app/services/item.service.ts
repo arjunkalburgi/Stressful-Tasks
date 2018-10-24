@@ -9,9 +9,9 @@ export class ItemService {
   availableColours = ['st-taskColour--red', 'st-taskColour--orange', 'st-taskColour--green', 'st-colorBg--yellow', 'st-taskColour--purple', 'st-taskColour--blue', 'st-taskColour--pink']
 
   constructor() {
-    this.createItem("Omg exam1")
-    this.createItem("Omg exam2")
-    this.createItem("Omg exam3")
+    this.createItem("Omg exam")
+    this.createItem("Omg exam")
+    this.createItem("Omg exam")
   }
 
   createItem(title) {
@@ -50,6 +50,32 @@ export class ItemService {
     // total += newval; 
     // console.log(total + " should be 1 always"); 
     return newval; 
+  }
+
+  moreStress(currentItem) {
+    // let total = 0; 
+    this.items.forEach(item => {
+      if (item === currentItem) {
+        item.percentage = item.percentage + 0.05; 
+      } else {
+        item.percentage = item.percentage - (0.05 / (this.items.length - 1)); 
+      }
+      // total += item.percentage; 
+    })
+    // console.log(total + " should be 1 always"); 
+  }
+
+  lessStress(currentItem) {
+    // let total = 0;
+    this.items.forEach(item => {
+      if (item === currentItem) {
+        item.percentage = item.percentage - 0.05; 
+      } else {
+        item.percentage = item.percentage + (0.05/(this.items.length-1)); 
+      }
+      // total += item.percentage;
+    })
+    // console.log(total + " should be 1 always");
   }
 
 

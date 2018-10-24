@@ -17,9 +17,9 @@
   <ion-list class="st-tasks__list">
     <ion-item class="st-tasks__task" *ngFor="let item of items">
       <div class="st-tasks__taskcolour {{item.colour}}"></div>
-      <ion-label class="st-tasks__tasktext">{{ item.title }}</ion-label>
-      <button class="st-button"><div class="st-buttonBg st-buttonBg--stress {{item.colour}}"></div></button>
-      <button class="st-button"><div class="st-buttonBg st-buttonBg--fine {{item.colour}}"></div></button>
+      <ion-label class="st-tasks__tasktext">{{ item.title }} {{item.percentage}} </ion-label>
+      <button class="st-button" (click)="moreStress(item)"><div class="st-buttonBg st-buttonBg--stress {{item.colour}}"></div></button>
+      <button class="st-button" (click)="lessStress(item)"><div class="st-buttonBg st-buttonBg--fine {{item.colour}}"></div></button>
     </ion-item>
   </ion-list>
 </ion-content>

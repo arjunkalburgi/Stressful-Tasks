@@ -33,4 +33,12 @@ export class HomePage implements OnInit {
     this.new_item_form.reset();
   }
 
+  moreStress(item) {
+    this.itemService.moreStress(item); 
+  }
+
+  lessStress(item) {
+    this.itemService.lessStress(item); 
+  }
+
 }
