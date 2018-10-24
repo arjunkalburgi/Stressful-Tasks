@@ -75,6 +75,8 @@ export class HomePage implements OnInit {
 
   update() {
     this.items.sort((a, b) => b.percentage - a.percentage)
-    this.displayChart(); 
+    this.doughnutChart.data.datasets[0].data = this.itemService.getData(); 
+    this.doughnutChart.data.datasets[0].backgroundColor = this.itemService.getColours(); 
+    this.doughnutChart.update();
   }
 }
