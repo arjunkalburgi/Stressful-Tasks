@@ -41,41 +41,31 @@ export class ItemService {
 
   chooseNewItemPercentage() {
     let newval = 1.0; 
-    // let total = 0; 
     this.items.forEach(item => {
       newval = newval - (item.percentage * .8); 
       item.percentage = item.percentage * .8; 
-      // total += item.percentage; 
     });
-    // total += newval; 
-    // console.log(total + " should be 1 always"); 
     return newval; 
   }
 
   moreStress(currentItem) {
-    // let total = 0; 
     this.items.forEach(item => {
       if (item === currentItem) {
         item.percentage = item.percentage + 0.05; 
       } else {
         item.percentage = item.percentage - (0.05 / (this.items.length - 1)); 
       }
-      // total += item.percentage; 
     })
-    // console.log(total + " should be 1 always"); 
   }
 
   lessStress(currentItem) {
-    // let total = 0;
     this.items.forEach(item => {
       if (item === currentItem) {
         item.percentage = item.percentage - 0.05; 
       } else {
         item.percentage = item.percentage + (0.05/(this.items.length-1)); 
       }
-      // total += item.percentage;
     })
-    // console.log(total + " should be 1 always");
   }
 
 
