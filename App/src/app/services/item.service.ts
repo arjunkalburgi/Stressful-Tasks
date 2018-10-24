@@ -15,13 +15,11 @@ export class ItemService {
   }
 
   createItem(title) {
-    let randomId = Math.random().toString(36).substr(2, 5);
-    let colour = this.chooseNewItemColour(); 
     this.items.push({
-      'id': randomId,
+      'id': Math.random().toString(36).substr(2, 5),
       'title': title,
-      'colour': colour, 
-      'percentage': 0.5
+      'colour': this.chooseNewItemColour(), 
+      'percentage': this.chooseNewItemPercentage()
     });
   }
 
@@ -39,6 +37,19 @@ export class ItemService {
     let colour = this.availableColours[index]; 
     this.availableColours.splice(index, 1); 
     return colour; 
+  }
+
+  chooseNewItemPercentage() {
+    let newval = 1.0; 
+    // let total = 0; 
+    this.items.forEach(item => {
+      newval = newval - (item.percentage * .8); 
+      item.percentage = item.percentage * .8; 
+      // total += item.percentage; 
+    });
+    // total += newval; 
+    // console.log(total + " should be 1 always"); 
+    return newval; 
   }
 
 
