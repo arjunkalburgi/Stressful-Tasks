@@ -52,8 +52,18 @@ export class ItemService {
     this.items.forEach(item => {
       if (item === currentItem) {
         item.percentage = item.percentage + 0.05; 
+
+        // item cannot go above 1
+        if (item.percentage >= 1) {
+          item.percentage = 1; 
+        }
       } else {
         item.percentage = item.percentage - (0.05 / (this.items.length - 1)); 
+        
+        // item cannot be less than 0 
+        if (item.percentage <= 0) {
+          item.percentage = 0; 
+        }
       }
     })
   }
@@ -62,8 +72,18 @@ export class ItemService {
     this.items.forEach(item => {
       if (item === currentItem) {
         item.percentage = item.percentage - 0.05; 
+
+        // if item is reduced to less than 0, it should be removed
+        if (item.percentage <= 0) {
+          this.items.splice(this.items.indexOf(item), 1); 
+        }
       } else {
         item.percentage = item.percentage + (0.05/(this.items.length-1)); 
+
+        // item cannot go above 1
+        if (item.percentage >= 1) {
+          item.percentage = 1;
+        }
       }
     })
   }
