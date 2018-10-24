@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   items: Array<any>;
   new_item_form: FormGroup;
-  @ViewChild('doughnutCanvas') doughnutCanvas;
+  @ViewChild('stgraph') doughnutCanvas;
   doughnutChart: any;
 
   constructor(
@@ -59,6 +59,8 @@ export class HomePage implements OnInit {
         }]
       },
       options: {
+        cutoutPercentage: 74,
+        responsive: true,
         legend: {
           display: false
         },
