@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class ItemService {
 
   items: Array<any> = []
-  availableColours = ['st-taskColour--red', 'st-taskColour--orange', 'st-taskColour--green', 'st-colorBg--yellow', 'st-taskColour--purple', 'st-taskColour--blue', 'st-taskColour--pink']
+  availableColours = [['#FD898C', 'st-taskColour--red'], ['#E8BD93', 'st-taskColour--orange'], 
+    ['#3D9994', 'st-taskColour--green'], ['#F2EE8A', 'st-colorBg--yellow'], 
+    ['#AE93E8', 'st-taskColour--purple'], ['#78A8EF', 'st-taskColour--blue'], ['#E893D0', 'st-taskColour--pink']]
 
   constructor() {
     this.createItem("Omg exam")
@@ -14,22 +16,27 @@ export class ItemService {
     this.createItem("Omg exam")
   }
 
-  createItem(title) {
-    this.items.push({
-      'id': Math.random().toString(36).substr(2, 5),
-      'title': title,
-      'colour': this.chooseNewItemColour(), 
-      'percentage': this.chooseNewItemPercentage()
-    });
-  }
-
-  getItems(){
+  getItems() {
     return this.items;
   }
 
-  updateItem(newValues){
-    let itemIndex = this.items.findIndex(item => item.id == newValues.id);
-    this.items[itemIndex] = newValues;
+  getData() {
+    return this.items.map(a => a.percentage); 
+  }
+
+  getColours() {
+    return this.items.map(a => a.colour); 
+  }
+
+  createItem(title) {
+    let colour = this.chooseNewItemColour()
+    this.items.push({
+      'id': Math.random().toString(36).substr(2, 5),
+      'title': title,
+      'colour': colour[0], 
+      'colourClass': colour[1], 
+      'percentage': this.chooseNewItemPercentage()
+    });
   }
 
   chooseNewItemColour() {
@@ -87,6 +94,5 @@ export class ItemService {
       }
     })
   }
-
 
 }

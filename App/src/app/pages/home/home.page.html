@@ -3,7 +3,8 @@
 </header>
 
 <section  class="st-graph">
-  <img class="st-graph__placeholderimage" src="../../../assets/icon/favicon.png" />
+  <!-- <img class="st-graph__placeholderimage" src="../../../assets/icon/favicon.png" /> -->
+  <canvas #doughnutCanvas> </canvas>
 </section>
 
 <section class="st-add">
@@ -16,10 +17,10 @@
 <ion-content class="st-tasks">
   <ion-list class="st-tasks__list">
     <ion-item class="st-tasks__task" *ngFor="let item of items">
-      <div class="st-tasks__taskcolour {{item.colour}}"></div>
+      <div class="st-tasks__taskcolour {{item.colourClass}}"></div>
       <ion-label class="st-tasks__tasktext">{{ item.title }} {{item.percentage}} </ion-label>
-      <button class="st-button" (click)="moreStress(item)"><div class="st-buttonBg st-buttonBg--stress {{item.colour}}"></div></button>
-      <button class="st-button" (click)="lessStress(item)"><div class="st-buttonBg st-buttonBg--fine {{item.colour}}"></div></button>
+      <button class="st-button" (click)="moreStress(item)"><div class="st-buttonBg st-buttonBg--stress {{item.colourClass}}"></div></button>
+      <button class="st-button" (click)="lessStress(item)"><div class="st-buttonBg st-buttonBg--fine {{item.colourClass}}"></div></button>
     </ion-item>
   </ion-list>
 </ion-content>
